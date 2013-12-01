@@ -22,6 +22,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name="postman.ptcalculator.DisplayScore"
+            android:label="@string/title_activity_display_score"
+            android:parentActivityName="postman.ptcalculator.MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="postman.ptcalculator.MainActivity" />
+        </activity>
     </application>
 
 </manifest>

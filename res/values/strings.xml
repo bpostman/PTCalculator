@@ -4,5 +4,10 @@
     <string name="app_name">PTCalculator</string>
     <string name="action_settings">Settings</string>
     <string name="hello_world">Hello world!</string>
+    <string name="info">Enter Your Info:</string>
+    <string name="scores">Enter Your Scores:</string>
+    <string name="male">MALE</string>
+    <string name="female">FEMALE</string>
+    <string name="title_activity_display_score">DisplayScore</string>
 
 </resources>
