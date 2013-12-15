@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.v4.app.NavUtils;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
 
 public class DisplayScore extends Activity {
 
@@ -15,21 +16,39 @@ public class DisplayScore extends Activity {
 		setContentView(R.layout.activity_display_score);
 		// Show the Up button in the action bar.
 		setupActionBar();
+		Intent intent = getIntent();
 		
-		
-		Intent intent = new Intent();
 		int age = intent.getIntExtra("age", 0);
-		boolean gender = intent.getBooleanExtra("isMale", true);
+		boolean isMale = intent.getBooleanExtra("isMale", true);
 		int pushups = intent.getIntExtra("pushups", 0);
 		int situps = intent.getIntExtra("situps", 0);
-		float runTime = intent.getFloatExtra("runTime", (float)0.0);
+		double runTime = intent.getDoubleExtra("runTime", 00.00);
+		
+		System.out.println(isMale);
+		
+		CalcScore calculator = new CalcScore();
+		Integer pushupsScore = Integer.valueOf(calculator.getPushupsScore(age, pushups, isMale));
+		Integer situpsScore = Integer.valueOf(calculator.getSitupsScore(age, situps, isMale));
+		Integer runScore = Integer.valueOf(calculator.getRunScore(age, runTime, isMale));
+		Integer totalScore = pushupsScore + situpsScore + runScore;
+		
+	    TextView pushupsDisplay = (TextView)findViewById(R.id.pushupsScoreDisplay);
+	    pushupsDisplay.setText(pushupsScore.toString());
+	    
+	    TextView situpsDisplay = (TextView)findViewById(R.id.situpsScoreDisplay);
+	    situpsDisplay.setText(situpsScore.toString());
+	    
+	    TextView runDisplay = (TextView)findViewById(R.id.runScoreDisplay);
+	    runDisplay.setText(runScore.toString());
+	    
+	    TextView totalDisplay = (TextView)findViewById(R.id.totalScoreDisplay);
+	    totalDisplay.setText(totalScore.toString());
 		
 		
 	}
 
-	/**
-	 * Set up the {@link android.app.ActionBar}.
-	 */
+	
+	
 	private void setupActionBar() {
 
 		getActionBar().setDisplayHomeAsUpEnabled(true);

@@ -9,5 +9,10 @@
     <string name="male">MALE</string>
     <string name="female">FEMALE</string>
     <string name="title_activity_display_score">DisplayScore</string>
+    <string name="select_gender">Select Gender</string>
+    <string-array name ="genders">
+        <item>Male</item>
+        <item>Female</item>
+    </string-array>
 
 </resources>
